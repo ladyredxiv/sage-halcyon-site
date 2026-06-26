@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sage Halcyon | Cozy Sci-Fi Romance</title>
+<meta name="description" content="Cozy sci-fi romance by Sage Halcyon: greenhouse domes, soft landings, found family, and love stories under starlight.">
+<meta property="og:title" content="Sage Halcyon | Cozy Sci-Fi Romance">
+<meta property="og:description" content="Greenhouse domes, soft landings, found family, and slow-burn romance under starlight.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="images/greenhouse-cover.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Karla:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --space: #14192a;
+    --space-soft: #202943;
+    --greenhouse: #24483f;
+    --greenhouse-bright: #77a890;
+    --leaf: #b8d7a7;
+    --paper: #fff7e8;
+    --paper-deep: #f2dfbf;
+    --lamp: #ffc66d;
+    --coral: #ff8d78;
+    --rose: #f8b6aa;
+    --ink: #2f2a27;
+    --muted: #765f55;
+    --white: #fffdf7;
+    --shadow: rgba(10, 13, 22, 0.32);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    min-width: 320px;
+    background:
+      radial-gradient(circle at 8% 8%, rgba(255, 198, 109, 0.22), transparent 28rem),
+      radial-gradient(circle at 92% 0%, rgba(119, 168, 144, 0.18), transparent 30rem),
+      linear-gradient(180deg, var(--space) 0%, #182036 32%, var(--paper) 32.1%, var(--paper) 100%);
+    color: var(--ink);
+    font-family: "Karla", Arial, sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background-image:
+      radial-gradient(circle, rgba(255, 253, 247, 0.72) 0 1px, transparent 1.5px),
+      radial-gradient(circle, rgba(255, 198, 109, 0.36) 0 1px, transparent 1.5px);
+    background-size: 86px 86px, 132px 132px;
+    background-position: 12px 18px, 54px 44px;
+    opacity: 0.42;
+  }
+
+  a { color: inherit; text-decoration: none; }
+  img { max-width: 100%; display: block; }
+  h1, h2, h3, .brand {
+    font-family: "Fraunces", Georgia, serif;
+    color: inherit;
+    font-weight: 700;
+    letter-spacing: 0;
+  }
+
+  .shell {
+    width: min(1120px, calc(100% - 36px));
+    margin: 0 auto;
+  }
+
+  .skip-link {
+    position: absolute;
+    left: 16px;
+    top: -80px;
+    background: var(--lamp);
+    color: var(--space);
+    padding: 10px 14px;
+    border-radius: 999px;
+    font-weight: 700;
+    z-index: 100;
+  }
+  .skip-link:focus { top: 16px; }
+
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    background: rgba(20, 25, 42, 0.84);
+    border-bottom: 1px solid rgba(255, 253, 247, 0.12);
+    backdrop-filter: blur(12px);
+  }
+  .nav-inner {
+    min-height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+  }
+  .brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--white);
+    font-size: 22px;
+    white-space: nowrap;
+  }
+  .brand-mark {
+    width: 34px;
+    height: 34px;
+    border: 2px solid rgba(255, 253, 247, 0.7);
+    border-radius: 50%;
+    position: relative;
+    flex: 0 0 auto;
+    background: radial-gradient(circle at 36% 34%, var(--lamp) 0 18%, var(--coral) 19% 37%, transparent 38%);
+    box-shadow: inset 0 0 0 6px rgba(20, 25, 42, 0.38);
+  }
+  .brand-mark::after {
+    content: "";
+    position: absolute;
+    width: 18px;
+    height: 8px;
+    border: 1px solid rgba(255, 253, 247, 0.66);
+    border-top: 0;
+    border-radius: 0 0 50% 50%;
+    left: 6px;
+    bottom: 6px;
+  }
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: rgba(255, 253, 247, 0.84);
+    font-size: 14px;
+    font-weight: 700;
+  }
+  .nav-links a {
+    padding: 9px 12px;
+    border-radius: 999px;
+  }
+  .nav-links a:hover {
+    background: rgba(255, 253, 247, 0.12);
+    color: var(--white);
+  }
+
+  .hero {
+    min-height: calc(100vh - 72px);
+    padding: 56px 0 46px;
+    color: var(--white);
+    display: grid;
+    align-items: center;
+  }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(280px, 420px);
+    gap: 44px;
+    align-items: center;
+  }
+  .eyebrow,
+  .section-kicker {
+    color: var(--lamp);
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  .hero h1 {
+    margin-top: 16px;
+    max-width: 780px;
+    color: var(--white);
+    font-size: clamp(46px, 8vw, 88px);
+    line-height: 0.95;
+  }
+  .hero .lede {
+    margin-top: 24px;
+    max-width: 650px;
+    color: rgba(255, 253, 247, 0.86);
+    font-size: clamp(18px, 2vw, 22px);
+  }
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 30px;
+  }
+  .button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 46px;
+    padding: 12px 20px;
+    border: 1px solid transparent;
+    border-radius: 999px;
+    font-size: 14px;
+    font-weight: 800;
+    line-height: 1;
+    transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+  }
+  .button:hover { transform: translateY(-2px); }
+  .button.primary {
+    background: var(--lamp);
+    color: #2d1f15;
+    box-shadow: 0 14px 28px rgba(255, 198, 109, 0.22);
+  }
+  .button.secondary {
+    color: var(--white);
+    border-color: rgba(255, 253, 247, 0.34);
+    background: rgba(255, 253, 247, 0.08);
+  }
+  .button.ghost {
+    color: var(--greenhouse);
+    border-color: rgba(36, 72, 63, 0.24);
+    background: rgba(36, 72, 63, 0.06);
+  }
+
+  .feature-card {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(255, 253, 247, 0.18);
+    border-radius: 28px;
+    background:
+      linear-gradient(180deg, rgba(255, 253, 247, 0.14), rgba(255, 253, 247, 0.05)),
+      rgba(255, 253, 247, 0.08);
+    box-shadow: 0 28px 70px var(--shadow);
+  }
+  .feature-window {
+    position: relative;
+    margin: 18px;
+    overflow: hidden;
+    border: 2px solid rgba(255, 253, 247, 0.34);
+    border-radius: 22px 22px 120px 120px;
+    background: var(--space-soft);
+  }
+  .feature-window::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    box-shadow: inset 0 0 0 10px rgba(20, 25, 42, 0.24);
+    pointer-events: none;
+  }
+  .feature-window img {
+    width: 100%;
+    aspect-ratio: 2 / 3;
+    object-fit: cover;
+  }
+  .feature-ribbon {
+    margin: 0 22px 22px;
+    padding: 16px 18px;
+    border: 1px solid rgba(255, 253, 247, 0.16);
+    border-radius: 20px;
+    color: var(--space);
+    background: linear-gradient(135deg, rgba(255, 247, 232, 0.96), rgba(255, 253, 247, 0.9));
+    box-shadow: 0 16px 34px rgba(0, 0, 0, 0.2);
+  }
+  .feature-ribbon strong {
+    display: block;
+    font-family: "Fraunces", Georgia, serif;
+    font-size: 20px;
+    line-height: 1.1;
+  }
+  .feature-ribbon span {
+    display: block;
+    margin-top: 4px;
+    color: var(--muted);
+    font-size: 13px;
+    font-weight: 700;
+  }
+
+  main {
+    background:
+      linear-gradient(180deg, transparent 0, var(--paper) 120px),
+      radial-gradient(circle at 90% 4%, rgba(255, 141, 120, 0.16), transparent 24rem);
+  }
+  .main-inner { padding: 38px 0 72px; }
+  section { scroll-margin-top: 96px; }
+  .section-head {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 28px;
+    margin-bottom: 26px;
+  }
+  .section-head h2 {
+    margin-top: 8px;
+    color: var(--greenhouse);
+    font-size: clamp(32px, 5vw, 54px);
+    line-height: 1;
+  }
+  .section-head p {
+    max-width: 560px;
+    color: var(--muted);
+    font-size: 17px;
+  }
+
+  .intro-band {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 18px;
+    margin-bottom: 68px;
+  }
+  .vibe-tile {
+    min-height: 144px;
+    padding: 22px;
+    border: 1px solid rgba(36, 72, 63, 0.16);
+    border-radius: 24px;
+    background: rgba(255, 253, 247, 0.72);
+    box-shadow: 0 16px 36px rgba(36, 72, 63, 0.08);
+  }
+  .vibe-tile .icon {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 14px;
+    border-radius: 999px;
+    background:
+      radial-gradient(circle at 38% 34%, var(--lamp) 0 22%, transparent 23%),
+      linear-gradient(135deg, var(--greenhouse), var(--greenhouse-bright));
+  }
+  .vibe-tile h3 {
+    color: var(--greenhouse);
+    font-size: 21px;
+    line-height: 1.15;
+  }
+  .vibe-tile p {
+    margin-top: 8px;
+    color: var(--muted);
+    font-size: 15px;
+  }
+
+  .bookshelf { margin-top: 26px; }
+  .book-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+  }
+  .books-loading {
+    grid-column: 1 / -1;
+    padding: 36px;
+    text-align: center;
+    color: var(--muted);
+    background: rgba(255, 253, 247, 0.72);
+    border: 1px dashed rgba(36, 72, 63, 0.24);
+    border-radius: 22px;
+  }
+  .book-card {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+    overflow: hidden;
+    border: 1px solid rgba(36, 72, 63, 0.16);
+    border-radius: 24px;
+    background: var(--white);
+    box-shadow: 0 20px 42px rgba(36, 72, 63, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .book-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 26px 54px rgba(36, 72, 63, 0.16);
+  }
+  .book-cover {
+    position: relative;
+    aspect-ratio: 2 / 3;
+    overflow: hidden;
+    background:
+      radial-gradient(circle at 50% 22%, rgba(255, 198, 109, 0.42), transparent 28%),
+      linear-gradient(160deg, var(--space-soft), var(--greenhouse));
+  }
+  .book-cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .book-cover-placeholder {
+    display: grid;
+    place-items: center;
+    width: 100%;
+    height: 100%;
+    padding: 30px;
+    color: rgba(255, 253, 247, 0.82);
+    text-align: center;
+    font-family: "Fraunces", Georgia, serif;
+    font-size: 26px;
+    line-height: 1.05;
+  }
+  .tag {
+    position: absolute;
+    left: 14px;
+    top: 14px;
+    z-index: 2;
+    padding: 6px 10px;
+    border-radius: 999px;
+    color: var(--space);
+    background: rgba(255, 198, 109, 0.94);
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .book-info {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    padding: 20px;
+  }
+  .book-info h3 {
+    color: var(--greenhouse);
+    font-size: 24px;
+    line-height: 1.05;
+  }
+  .series {
+    margin-top: 8px;
+    color: var(--coral);
+    font-size: 13px;
+    font-weight: 900;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+  .trope-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 14px;
+  }
+  .trope-list span {
+    padding: 5px 9px;
+    border-radius: 999px;
+    color: var(--greenhouse);
+    background: rgba(184, 215, 167, 0.34);
+    font-size: 12px;
+    font-weight: 800;
+  }
+  .book-blurb {
+    margin-top: 16px;
+    color: var(--muted);
+    font-size: 15px;
+  }
+  .book-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: auto;
+    padding-top: 18px;
+  }
+  .book-actions .button {
+    min-height: 40px;
+    padding: 10px 14px;
+    font-size: 13px;
+  }
+  .book-actions .button.primary {
+    background: var(--greenhouse);
+    color: var(--white);
+    box-shadow: none;
+  }
+  .quiet-status {
+    display: inline-flex;
+    align-items: center;
+    min-height: 40px;
+    color: var(--muted);
+    font-size: 13px;
+    font-weight: 800;
+  }
+
+  .about-panel {
+    display: grid;
+    grid-template-columns: minmax(260px, 0.72fr) minmax(0, 1fr);
+    gap: 34px;
+    align-items: center;
+    margin-top: 76px;
+    padding: 26px;
+    border-radius: 32px;
+    color: var(--white);
+    background:
+      radial-gradient(circle at 82% 10%, rgba(255, 198, 109, 0.2), transparent 22rem),
+      linear-gradient(135deg, var(--greenhouse), var(--space-soft));
+    box-shadow: 0 26px 60px rgba(20, 25, 42, 0.22);
+  }
+  .portrait-frame {
+    overflow: hidden;
+    border: 2px solid rgba(255, 253, 247, 0.26);
+    border-radius: 28px 28px 100px 100px;
+    background: rgba(255, 253, 247, 0.08);
+  }
+  .portrait-frame img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+  }
+  .about-copy {
+    padding: 10px 10px 10px 0;
+  }
+  .about-copy h2 {
+    color: var(--white);
+    font-size: clamp(32px, 4vw, 48px);
+    line-height: 1.04;
+  }
+  .about-copy p {
+    max-width: 660px;
+    margin-top: 16px;
+    color: rgba(255, 253, 247, 0.84);
+    font-size: 17px;
+  }
+
+  .newsletter {
+    margin-top: 76px;
+    padding: 30px;
+    border: 1px solid rgba(36, 72, 63, 0.16);
+    border-radius: 32px;
+    background:
+      linear-gradient(90deg, rgba(255, 253, 247, 0.92), rgba(255, 247, 232, 0.82)),
+      radial-gradient(circle at 96% 0%, rgba(255, 141, 120, 0.22), transparent 20rem);
+  }
+  .newsletter-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 0.82fr) minmax(280px, 1fr);
+    gap: 30px;
+    align-items: center;
+  }
+  .newsletter h2 {
+    color: var(--greenhouse);
+    font-size: clamp(30px, 4vw, 46px);
+    line-height: 1.02;
+  }
+  .newsletter p {
+    margin-top: 12px;
+    color: var(--muted);
+    font-size: 16px;
+  }
+  #eo-newsletter-form {
+    min-height: 156px;
+    border: 1px dashed rgba(36, 72, 63, 0.22);
+    border-radius: 22px;
+    background: rgba(255, 253, 247, 0.6);
+    padding: 16px;
+  }
+
+  footer {
+    padding: 38px 0 52px;
+    color: rgba(255, 253, 247, 0.72);
+    background: var(--space);
+  }
+  .footer-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  footer p {
+    max-width: 560px;
+    font-size: 13px;
+  }
+  footer a {
+    color: var(--lamp);
+    font-weight: 800;
+    text-decoration: underline;
+    text-decoration-color: rgba(255, 198, 109, 0.4);
+    text-underline-offset: 3px;
+  }
+
+  @media (max-width: 900px) {
+    body {
+      background:
+        radial-gradient(circle at 8% 8%, rgba(255, 198, 109, 0.22), transparent 22rem),
+        linear-gradient(180deg, var(--space) 0%, #182036 38%, var(--paper) 38.1%, var(--paper) 100%);
+    }
+    .hero-grid,
+    .about-panel,
+    .newsletter-grid {
+      grid-template-columns: 1fr;
+    }
+    .hero { min-height: auto; }
+    .feature-card { max-width: 420px; }
+    .intro-band { grid-template-columns: 1fr; }
+    .book-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .section-head { display: block; }
+    .section-head p { margin-top: 12px; }
+  }
+
+  @media (max-width: 640px) {
+    .shell { width: min(100% - 28px, 1120px); }
+    .nav-inner { min-height: 64px; }
+    .nav-links { display: none; }
+    .hero { padding-top: 38px; }
+    .hero h1 { font-size: clamp(42px, 15vw, 62px); }
+    .feature-card { max-width: none; }
+    .book-grid { grid-template-columns: 1fr; }
+    .about-panel,
+    .newsletter {
+      padding: 18px;
+      border-radius: 24px;
+    }
+    .footer-inner { display: block; }
+    footer p { margin-top: 14px; }
+  }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#books">Skip to books</a>
+
+<nav aria-label="Primary navigation">
+  <div class="shell nav-inner">
+    <a class="brand" href="#top" aria-label="Sage Halcyon home">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <span>Sage Halcyon</span>
+    </a>
+    <div class="nav-links">
+      <a href="#books">Books</a>
+      <a href="#about">About</a>
+      <a href="#newsletter">Newsletter</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="shell hero-grid">
+    <div>
+      <p class="eyebrow">Cozy sci-fi romance</p>
+      <h1>Soft landings under impossible stars.</h1>
+      <p class="lede">Greenhouse domes, found family, tender repairs, and love stories that unfold where the air is warm and the view is full of planets.</p>
+      <div class="hero-actions">
+        <a class="button primary" href="#books">Explore the books</a>
+        <a class="button secondary" href="#newsletter">Join the crew list</a>
+      </div>
+    </div>
+    <aside class="feature-card" aria-label="Featured book">
+      <div class="feature-window">
+        <img src="images/greenhouse-cover.jpg" alt="Cover of The Greenhouse at the Edge of Everything by Sage Halcyon">
+      </div>
+      <div class="feature-ribbon">
+        <strong>The Greenhouse at the Edge of Everything</strong>
+        <span>Thistledown, Book 1 &bull; Out now</span>
+      </div>
+    </aside>
+  </div>
+</header>
+
+<main>
+  <div class="shell main-inner">
+    <section class="intro-band" aria-label="Reader promises">
+      <article class="vibe-tile">
+        <div class="icon" aria-hidden="true"></div>
+        <h3>Low dread, high wonder</h3>
+        <p>Space can be vast without being cruel. These stories keep the awe and leave room to breathe.</p>
+      </article>
+      <article class="vibe-tile">
+        <div class="icon" aria-hidden="true"></div>
+        <h3>Romance with roots</h3>
+        <p>Slow-burn connection, emotional safety, competent people learning how to stay.</p>
+      </article>
+      <article class="vibe-tile">
+        <div class="icon" aria-hidden="true"></div>
+        <h3>Series-friendly reads</h3>
+        <p>Each Thistledown book has its own couple, its own ending, and another little window into the dome.</p>
+      </article>
+    </section>
+
+    <section class="bookshelf" id="books">
+      <div class="section-head">
+        <div>
+          <p class="section-kicker">The Thistledown series</p>
+          <h2>The books</h2>
+        </div>
+        <p>Start anywhere your heart wants, though Book 1 is waiting with warm growlights and a suspiciously effective cup of coffee.</p>
+      </div>
+      <div class="book-grid" id="book-grid">
+        <p class="books-loading">Opening the greenhouse shelves...</p>
+      </div>
+    </section>
+
+    <section class="about-panel" id="about">
+      <div class="portrait-frame">
+        <img src="images/sage-halcyon-portrait.jpg" alt="Portrait of Sage Halcyon in a cozy greenhouse observatory">
+      </div>
+      <div class="about-copy">
+        <p class="section-kicker">About Sage</p>
+        <h2>Hello from the greenhouse deck.</h2>
+        <p>Sage Halcyon writes science fiction romance for readers who want the wonder of space without the dread: ships with herb gardens instead of weapons bays, crews who take care of each other, and love stories that unfold slowly enough to actually enjoy the view.</p>
+        <p>The Thistledown books orbit a small domed settlement where every romance stands on its own, but the town keeps growing around them, one repair, seedling, and soft landing at a time.</p>
+      </div>
+    </section>
+
+    <section class="newsletter" id="newsletter">
+      <div class="newsletter-grid">
+        <div>
+          <p class="section-kicker">Crew list</p>
+          <h2>Get new releases and gentle transmissions.</h2>
+          <p>Join for release notes, sneak peeks, and the occasional dispatch from the quietest corner of known space.</p>
+        </div>
+        <div id="eo-newsletter-form">
+          <script async src="https://eomail5.com/form/fc8d0000-70e9-11f1-856b-730b15730502.js" data-form="fc8d0000-70e9-11f1-856b-730b15730502"></script>
+        </div>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer>
+  <div class="shell footer-inner">
+    <a class="brand" href="#top" aria-label="Sage Halcyon home">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <span>Sage Halcyon</span>
+    </a>
+    <p>&copy; 2026 Sage Halcyon. Cozy sci-fi romance, one warm ship at a time. Published in partnership with <a href="https://mythcodepress.com/">Mythcode Press</a>.</p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var STATUS_LABELS = {
+    "out-now": { tag: "Available now", status: "Out now", statusClass: "is-live" },
+    "coming-soon": { tag: "Coming soon", status: "Coming soon", statusClass: "" },
+    "planned": { tag: "In orbit", status: "Planned", statusClass: "" }
+  };
+
+  function escapeHtml(value) {
+    var div = document.createElement("div");
+    div.textContent = value == null ? "" : String(value);
+    return div.innerHTML;
+  }
+
+  function seriesLine(book) {
+    if (!book.series) return "Standalone";
+    if (book.series_position) return book.series + " \u2022 Book " + book.series_position;
+    return book.series;
+  }
+
+  function renderTropes(tropes) {
+    if (!Array.isArray(tropes) || !tropes.length) return "";
+    return '<div class="trope-list">' + tropes.map(function (trope) {
+      return "<span>" + escapeHtml(trope) + "</span>";
+    }).join("") + "</div>";
+  }
+
+  function renderActions(book, meta) {
+    var links = Array.isArray(book.links) ? book.links.filter(function (link) {
+      return link && link.url && link.label;
+    }) : [];
+
+    if (!links.length) {
+      return '<div class="book-actions"><span class="quiet-status">' + escapeHtml(book.status_label || meta.status) + "</span></div>";
+    }
+
+    return '<div class="book-actions">' + links.map(function (link, index) {
+      var style = index === 0 ? "primary" : "ghost";
+      return '<a class="button ' + style + '" href="' + escapeHtml(link.url) + '">' + escapeHtml(link.label) + "</a>";
+    }).join("") + "</div>";
+  }
+
+  function renderCard(book) {
+    var meta = STATUS_LABELS[book.status] || STATUS_LABELS.planned;
+    var cover = book.cover_image
+      ? '<img src="' + escapeHtml(book.cover_image) + '" alt="Cover of ' + escapeHtml(book.title) + ' by Sage Halcyon">'
+      : '<div class="book-cover-placeholder">' + escapeHtml(book.title || "Future Thistledown story") + "</div>";
+
+    return (
+      '<article class="book-card">' +
+        '<div class="book-cover">' +
+          cover +
+          '<span class="tag">' + escapeHtml(book.status_label || meta.tag) + "</span>" +
+        "</div>" +
+        '<div class="book-info">' +
+          "<h3>" + escapeHtml(book.title) + "</h3>" +
+          '<p class="series">' + escapeHtml(seriesLine(book)) + "</p>" +
+          renderTropes(book.tropes) +
+          '<p class="book-blurb">' + escapeHtml(book.blurb || "") + "</p>" +
+          renderActions(book, meta) +
+        "</div>" +
+      "</article>"
+    );
+  }
+
+  function showFallback(grid) {
+    grid.innerHTML = '<p class="books-loading">The bookshelf is being restocked. Check back soon.</p>';
+  }
+
+  var grid = document.getElementById("book-grid");
+  if (!grid) return;
+
+  fetch("books.json", { cache: "no-store" })
+    .then(function (response) {
+      if (!response.ok) throw new Error("books.json not found");
+      return response.json();
+    })
+    .then(function (data) {
+      var books = data && Array.isArray(data.books) ? data.books : [];
+      if (!books.length) {
+        showFallback(grid);
+        return;
+      }
+      grid.innerHTML = books.map(renderCard).join("");
+    })
+    .catch(function () {
+      showFallback(grid);
+    });
+})();
+</script>
+</body>
+</html>

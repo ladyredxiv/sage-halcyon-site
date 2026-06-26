@@ -1,0 +1,53 @@
+{
+  "pen_name": "Sage Halcyon",
+  "generated_at": "2026-06-26T00:00:00Z",
+  "books": [
+    {
+      "id": "greenhouse-at-the-edge-of-everything",
+      "title": "The Greenhouse at the Edge of Everything",
+      "series": "Thistledown",
+      "series_position": 1,
+      "blurb": "Wren left a life built on threat assessment and exit counts behind on Meridian Station. Thistledown, four hundred people under a dome and a thousand seedlings deep in first planting, does not run on any protocol she knows. Neither does Asa Devereux, the settlement's quiet head grower, who notices things the way she does, just gentler.",
+      "status": "out-now",
+      "status_label": "Out now",
+      "cover_image": "images/greenhouse-cover.jpg",
+      "tropes": [
+        "slow burn",
+        "found family",
+        "second chances"
+      ],
+      "links": []
+    },
+    {
+      "id": "small-repairs",
+      "title": "Small Repairs",
+      "series": "Thistledown",
+      "series_position": 2,
+      "blurb": "Some fixes hold more than air. A Thistledown romance about the East Terrace growers' co-op, a humidity gauge that will not behave, and two people who have known each other long enough to stop paying attention, until they have to start again.",
+      "status": "coming-soon",
+      "status_label": "Coming soon",
+      "cover_image": "images/small-repairs-cover.jpg",
+      "tropes": [
+        "friends to lovers",
+        "competence kink",
+        "cozy repairs"
+      ],
+      "links": []
+    },
+    {
+      "id": "thistledown-book-3",
+      "title": "Book title TBA",
+      "series": "Thistledown",
+      "series_position": 3,
+      "blurb": "A future Thistledown installment, each book its own complete romance, same dome, same town, one more warm window lit against the stars.",
+      "status": "planned",
+      "status_label": "Planned",
+      "cover_image": null,
+      "tropes": [
+        "standalone romance",
+        "same cozy dome"
+      ],
+      "links": []
+    }
+  ]
+}
