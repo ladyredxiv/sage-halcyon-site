@@ -1,0 +1,7 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/sageodnk/public_html/
+    - /bin/cp index.html $DEPLOYPATH
+    - /bin/cp books.json $DEPLOYPATH
+    - /bin/cp -R images $DEPLOYPATH
