@@ -609,7 +609,9 @@
     </a>
     <div class="nav-links">
       <a href="#books">Books</a>
-      <a href="#about">About</a>
+      <a href="thistledown.html">Thistledown</a>
+      <a href="reading-order.html">Reading Order</a>
+      <a href="press.html">Press</a>
       <a href="#newsletter">Newsletter</a>
     </div>
   </div>
@@ -742,6 +744,10 @@
 
     if (!links.length) {
       return '<div class="book-actions"><span class="quiet-status">' + escapeHtml(book.status_label || meta.status) + "</span></div>";
+    }
+
+    if (book.page_url) {
+      links.push({ label: "Book details", url: book.page_url });
     }
 
     return '<div class="book-actions">' + links.map(function (link, index) {

@@ -11,12 +11,18 @@
       "status": "out-now",
       "status_label": "Out now",
       "cover_image": "images/greenhouse-cover.jpg",
+      "page_url": "greenhouse-at-the-edge-of-everything.html",
       "tropes": [
         "slow burn",
         "found family",
         "second chances"
       ],
-      "links": []
+      "links": [
+        {
+          "label": "Read on Amazon",
+          "url": "https://www.amazon.com/dp/B0H6KDZM4G"
+        }
+      ]
     },
     {
       "id": "small-repairs",
@@ -27,6 +33,7 @@
       "status": "coming-soon",
       "status_label": "Coming soon",
       "cover_image": "images/small-repairs-cover.jpg",
+      "page_url": "small-repairs.html",
       "tropes": [
         "friends to lovers",
         "competence kink",
@@ -43,6 +50,7 @@
       "status": "planned",
       "status_label": "Planned",
       "cover_image": null,
+      "page_url": null,
       "tropes": [
         "standalone romance",
         "same cozy dome"

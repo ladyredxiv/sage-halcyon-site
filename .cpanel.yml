@@ -3,5 +3,11 @@ deployment:
   tasks:
     - export DEPLOYPATH=/home/sageodnk/public_html/
     - /bin/cp index.html $DEPLOYPATH
+    - /bin/cp thistledown.html $DEPLOYPATH
+    - /bin/cp reading-order.html $DEPLOYPATH
+    - /bin/cp greenhouse-at-the-edge-of-everything.html $DEPLOYPATH
+    - /bin/cp small-repairs.html $DEPLOYPATH
+    - /bin/cp press.html $DEPLOYPATH
+    - /bin/cp site-pages.css $DEPLOYPATH
     - /bin/cp books.json $DEPLOYPATH
     - /bin/cp -R images $DEPLOYPATH
