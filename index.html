@@ -337,6 +337,42 @@
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 24px;
   }
+  .path-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+    gap: 24px;
+    margin: 26px 0 68px;
+  }
+  .path-card,
+  .series-card {
+    border: 1px solid rgba(36, 72, 63, 0.16);
+    border-radius: 24px;
+    background: rgba(255, 253, 247, 0.78);
+    box-shadow: 0 18px 40px rgba(36, 72, 63, 0.1);
+  }
+  .path-card {
+    padding: 26px;
+  }
+  .path-card h3,
+  .series-card h3 {
+    color: var(--greenhouse);
+    font-size: 30px;
+    line-height: 1.05;
+  }
+  .path-card p,
+  .series-card p {
+    margin-top: 12px;
+    color: var(--muted);
+    font-size: 16px;
+  }
+  .series-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+  }
+  .series-card {
+    padding: 22px;
+  }
   .books-loading {
     grid-column: 1 / -1;
     padding: 36px;
@@ -569,13 +605,15 @@
     }
     .hero-grid,
     .about-panel,
-    .newsletter-grid {
+    .newsletter-grid,
+    .path-grid {
       grid-template-columns: 1fr;
     }
     .hero { min-height: auto; }
     .feature-card { max-width: 420px; }
     .intro-band { grid-template-columns: 1fr; }
     .book-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .series-grid { grid-template-columns: 1fr; }
     .section-head { display: block; }
     .section-head p { margin-top: 12px; }
   }
@@ -663,13 +701,40 @@
     <section class="bookshelf" id="books">
       <div class="section-head">
         <div>
-          <p class="section-kicker">The Thistledown series</p>
-          <h2>The books</h2>
+          <p class="section-kicker">Start here</p>
+          <h2>Find your way into the dome</h2>
         </div>
-        <p>Start anywhere your heart wants, though the dome gets cozier if you follow the release order.</p>
+        <p>The homepage stays tidy on purpose. New releases live here; the full shelves are one click away.</p>
       </div>
-      <div class="book-grid" id="book-grid">
+      <div class="path-grid">
+        <article class="path-card">
+          <p class="series">New to Sage?</p>
+          <h3>Begin with Thistledown</h3>
+          <p>Each book is its own complete romance, but Book 1 opens the dome doors and lets the settlement grow around you in order.</p>
+          <div class="book-actions">
+            <a class="button primary" href="reading-order.html">Reading order</a>
+            <a class="button ghost" href="thistledown.html">Series page</a>
+          </div>
+        </article>
+        <div class="series-grid" id="series-grid">
+          <p class="books-loading">Opening the settlement map...</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="bookshelf" id="latest">
+      <div class="section-head">
+        <div>
+          <p class="section-kicker">Latest releases</p>
+          <h2>Fresh from the shelf</h2>
+        </div>
+        <p>The newest and next-up Sage Halcyon books. For the whole catalog, use the reading order.</p>
+      </div>
+      <div class="book-grid" id="latest-grid">
         <p class="books-loading">Opening the greenhouse shelves...</p>
+      </div>
+      <div class="hero-actions" style="margin-top: 24px;">
+        <a class="button ghost" href="reading-order.html">See full reading order</a>
       </div>
     </section>
 
@@ -779,29 +844,77 @@
     );
   }
 
-  function showFallback(grid) {
+  function showFallback(grid, message) {
     grid.innerHTML = '<p class="books-loading">The bookshelf is being restocked. Check back soon.</p>';
+    if (message) grid.innerHTML = '<p class="books-loading">' + escapeHtml(message) + "</p>";
   }
 
-  var grid = document.getElementById("book-grid");
-  if (!grid) return;
+  function sortForHome(a, b) {
+    var aSort = Number(a.home_sort || a.release_sort || a.series_position || 999);
+    var bSort = Number(b.home_sort || b.release_sort || b.series_position || 999);
+    return aSort - bSort;
+  }
 
-  fetch("books.json", { cache: "no-store" })
-    .then(function (response) {
-      if (!response.ok) throw new Error("books.json not found");
+  function renderSeriesCard(series) {
+    return (
+      '<article class="series-card">' +
+        '<p class="series">' + escapeHtml(series.status || "Series") + "</p>" +
+        "<h3>" + escapeHtml(series.title) + "</h3>" +
+        "<p>" + escapeHtml(series.description || series.subtitle || "") + "</p>" +
+        '<div class="book-actions">' +
+          '<a class="button ghost" href="' + escapeHtml(series.page_url || "reading-order.html") + '">Explore series</a>' +
+        "</div>" +
+      "</article>"
+    );
+  }
+
+  function fetchJson(primary, fallback) {
+    return fetch(primary, { cache: "no-store" }).then(function (response) {
+      if (!response.ok) throw new Error(primary + " not found");
       return response.json();
-    })
-    .then(function (data) {
-      var books = data && Array.isArray(data.books) ? data.books : [];
-      if (!books.length) {
-        showFallback(grid);
-        return;
-      }
-      grid.innerHTML = books.map(renderCard).join("");
-    })
-    .catch(function () {
-      showFallback(grid);
+    }).catch(function () {
+      if (!fallback) throw new Error(primary + " not found");
+      return fetch(fallback, { cache: "no-store" }).then(function (response) {
+        if (!response.ok) throw new Error(fallback + " not found");
+        return response.json();
+      });
     });
+  }
+
+  var latestGrid = document.getElementById("latest-grid");
+  var seriesGrid = document.getElementById("series-grid");
+  if (!latestGrid && !seriesGrid) return;
+
+  Promise.all([
+    fetchJson("data/books.json", "books.json"),
+    fetchJson("data/series.json", null).catch(function () { return { series: [] }; })
+  ]).then(function (results) {
+    var books = results[0] && Array.isArray(results[0].books) ? results[0].books : [];
+    var series = results[1] && Array.isArray(results[1].series) ? results[1].series : [];
+
+    if (latestGrid) {
+      var homeBooks = books.filter(function (book) { return book.show_on_home !== false; }).sort(sortForHome).slice(0, 3);
+      if (!homeBooks.length) {
+        showFallback(latestGrid);
+      } else {
+        latestGrid.innerHTML = homeBooks.map(renderCard).join("");
+      }
+    }
+
+    if (seriesGrid) {
+      var homeSeries = series.filter(function (item) { return item.featured !== false; }).sort(function (a, b) {
+        return Number(a.home_sort || 999) - Number(b.home_sort || 999);
+      });
+      if (!homeSeries.length) {
+        showFallback(seriesGrid, "Series shelves are being arranged.");
+      } else {
+        seriesGrid.innerHTML = homeSeries.map(renderSeriesCard).join("");
+      }
+    }
+  }).catch(function () {
+    if (latestGrid) showFallback(latestGrid);
+    if (seriesGrid) showFallback(seriesGrid, "Series shelves are being arranged.");
+  });
 })();
 </script>
 </body>

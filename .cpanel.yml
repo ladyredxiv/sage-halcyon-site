@@ -11,4 +11,5 @@ deployment:
     - /bin/cp press.html $DEPLOYPATH
     - /bin/cp site-pages.css $DEPLOYPATH
     - /bin/cp books.json $DEPLOYPATH
+    - /bin/cp -R data $DEPLOYPATH
     - /bin/cp -R images $DEPLOYPATH

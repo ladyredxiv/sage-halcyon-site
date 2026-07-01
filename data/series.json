@@ -1,0 +1,16 @@
+{
+  "generated_at": "2026-07-01T00:00:00Z",
+  "series": [
+    {
+      "id": "thistledown",
+      "title": "Thistledown",
+      "subtitle": "Cozy sci-fi romance under greenhouse stars",
+      "status": "active",
+      "description": "Standalone romances set in a small domed settlement where each book follows a new couple and the town keeps growing around them.",
+      "reading_order_label": "Best read in release order",
+      "page_url": "thistledown.html",
+      "featured": true,
+      "home_sort": 1
+    }
+  ]
+}
