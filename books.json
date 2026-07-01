@@ -78,6 +78,29 @@
         "forced proximity"
       ],
       "links": []
+    },
+    {
+      "id": "the-last-legible-page",
+      "title": "The Last Legible Page",
+      "series_id": "thistledown",
+      "series": "Thistledown",
+      "series_position": 4,
+      "blurb": "Sable Larkin has spent a decade convinced that books do not lie the way people do. She runs Thistledown's archive alone, on purpose, and she is fine with that. Then salvage hauler Rook Cassidy shows up with a water-damaged crate he does not know what to do with, and suddenly she has a slow restoration project on her hands, a guarded man near the door, and a find worth real money offworld.",
+      "status": "coming-soon",
+      "status_label": "Coming soon",
+      "cover_image": "images/last-legible-page-cover.jpg",
+      "page_url": "the-last-legible-page.html",
+      "featured": false,
+      "show_on_home": true,
+      "home_sort": 3,
+      "release_sort": 4,
+      "tropes": [
+        "archive romance",
+        "slow burn",
+        "guarded hearts",
+        "found evidence"
+      ],
+      "links": []
     }
   ]
 }
