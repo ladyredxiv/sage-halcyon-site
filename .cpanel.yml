@@ -7,6 +7,7 @@ deployment:
     - /bin/cp reading-order.html $DEPLOYPATH
     - /bin/cp greenhouse-at-the-edge-of-everything.html $DEPLOYPATH
     - /bin/cp small-repairs.html $DEPLOYPATH
+    - /bin/cp keeping-it-warm.html $DEPLOYPATH
     - /bin/cp press.html $DEPLOYPATH
     - /bin/cp site-pages.css $DEPLOYPATH
     - /bin/cp books.json $DEPLOYPATH

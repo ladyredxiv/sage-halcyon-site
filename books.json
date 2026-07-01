@@ -1,6 +1,6 @@
 {
   "pen_name": "Sage Halcyon",
-  "generated_at": "2026-06-26T00:00:00Z",
+  "generated_at": "2026-06-30T00:00:00Z",
   "books": [
     {
       "id": "greenhouse-at-the-edge-of-everything",
@@ -29,31 +29,38 @@
       "title": "Small Repairs",
       "series": "Thistledown",
       "series_position": 2,
-      "blurb": "Some fixes hold more than air. A Thistledown romance about the East Terrace growers' co-op, a humidity gauge that will not behave, and two people who have known each other long enough to stop paying attention, until they have to start again.",
-      "status": "coming-soon",
-      "status_label": "Coming soon",
+      "blurb": "Marlowe Kestrel fixes things and leaves. Thistledown is supposed to be one more contract: a greenhouse dome with a humidity problem, a fix she already understands, and a clean exit before anyone gets used to her. Then her fix fails publicly, and Hollis Brightwater, Thistledown's schoolteacher, is the first person who lets her be wrong without making her feel smaller for it.",
+      "status": "out-now",
+      "status_label": "Out now",
       "cover_image": "images/small-repairs-cover.jpg",
       "page_url": "small-repairs.html",
       "tropes": [
-        "friends to lovers",
-        "competence kink",
-        "cozy repairs"
+        "repair romance",
+        "forced proximity",
+        "ordinary tenderness"
       ],
-      "links": []
+      "links": [
+        {
+          "label": "Read on Amazon",
+          "url": "https://www.amazon.com/dp/B0H6YFNH25"
+        }
+      ]
     },
     {
-      "id": "thistledown-book-3",
-      "title": "Book title TBA",
+      "id": "keeping-it-warm",
+      "title": "Keeping it Warm",
       "series": "Thistledown",
       "series_position": 3,
-      "blurb": "A future Thistledown installment, each book its own complete romance, same dome, same town, one more warm window lit against the stars.",
-      "status": "planned",
-      "status_label": "Planned",
-      "cover_image": null,
-      "page_url": null,
+      "blurb": "Linnet Ashworth has run The Long Steep, Thistledown's only coffee shop and best-loved institution, for fifteen years. What she does not need is someone arriving with plans to replace it with something faster, newer, and theoretically better. Callum Pruitt has spent twenty years being good at jobs that do not remember him, until one contract makes him question what his work is really threatening.",
+      "status": "coming-soon",
+      "status_label": "Coming soon",
+      "cover_image": "images/keeping-it-warm-cover.png",
+      "page_url": "keeping-it-warm.html",
       "tropes": [
-        "standalone romance",
-        "same cozy dome"
+        "coffee shop",
+        "workplace tension",
+        "slow burn",
+        "forced proximity"
       ],
       "links": []
     }
