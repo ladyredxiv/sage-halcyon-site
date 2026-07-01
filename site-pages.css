@@ -24,6 +24,7 @@ body {
     linear-gradient(180deg, var(--space) 0%, #182036 320px, var(--paper) 321px);
   font-family: "Karla", Arial, sans-serif;
   line-height: 1.6;
+  overflow-x: hidden;
 }
 
 body::before {
@@ -46,6 +47,7 @@ h1, h2, h3, .brand {
   font-family: "Fraunces", Georgia, serif;
   font-weight: 700;
   letter-spacing: 0;
+  overflow-wrap: anywhere;
 }
 
 .shell {
@@ -286,6 +288,8 @@ main { padding: 34px 0 72px; }
   font-size: 13px;
   font-weight: 900;
   line-height: 1;
+  text-align: center;
+  white-space: normal;
 }
 
 .button.primary {
@@ -377,18 +381,52 @@ footer a {
 
   .book-cover {
     max-width: 280px;
+    margin: 0 auto;
   }
 }
 
 @media (max-width: 640px) {
   .shell { width: min(100% - 28px, 1120px); }
-  .nav-inner { min-height: 64px; }
-  .nav-links { display: none; }
+  .nav-inner {
+    min-height: 64px;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 10px;
+    padding: 12px 0;
+  }
+  .brand { font-size: 20px; }
+  .nav-links {
+    width: 100%;
+    overflow-x: auto;
+    padding-bottom: 4px;
+    scrollbar-width: none;
+  }
+  .nav-links::-webkit-scrollbar { display: none; }
+  .nav-links a {
+    flex: 0 0 auto;
+    padding: 8px 10px;
+    font-size: 13px;
+  }
   .page-hero { padding: 48px 0 36px; }
-  .page-hero h1 { font-size: clamp(42px, 15vw, 62px); }
+  .page-hero h1 {
+    font-size: clamp(36px, 13vw, 56px);
+    line-height: 1;
+  }
+  .page-hero p { font-size: 17px; }
+  main { padding: 26px 0 58px; }
+  .section { margin-top: 34px; }
   .panel.pad,
   .book-row,
   .card { padding: 18px; }
+  .book-row { gap: 18px; }
+  .book-cover { max-width: 240px; }
+  .book-row h3,
+  .card h3 { font-size: 24px; }
+  .actions .button {
+    flex: 1 1 140px;
+    min-width: 0;
+  }
+  .chips span { font-size: 11px; }
   .footer-inner { display: block; }
   footer p { margin-top: 14px; }
 }

@@ -66,6 +66,7 @@
     color: inherit;
     font-weight: 700;
     letter-spacing: 0;
+    overflow-wrap: anywhere;
   }
 
   .shell {
@@ -198,6 +199,8 @@
     font-size: 14px;
     font-weight: 800;
     line-height: 1;
+    text-align: center;
+    white-space: normal;
     transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
   }
   .button:hover { transform: translateY(-2px); }
@@ -473,6 +476,10 @@
     margin-top: 16px;
     color: var(--muted);
     font-size: 15px;
+    display: -webkit-box;
+    -webkit-line-clamp: 6;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
   }
   .book-actions {
     display: flex;
@@ -620,16 +627,77 @@
 
   @media (max-width: 640px) {
     .shell { width: min(100% - 28px, 1120px); }
-    .nav-inner { min-height: 64px; }
-    .nav-links { display: none; }
-    .hero { padding-top: 38px; }
-    .hero h1 { font-size: clamp(42px, 15vw, 62px); }
-    .feature-card { max-width: none; }
+    .nav-inner {
+      min-height: 64px;
+      align-items: flex-start;
+      flex-direction: column;
+      gap: 10px;
+      padding: 12px 0;
+    }
+    .brand { font-size: 20px; }
+    .nav-links {
+      width: 100%;
+      overflow-x: auto;
+      padding-bottom: 4px;
+      scrollbar-width: none;
+    }
+    .nav-links::-webkit-scrollbar { display: none; }
+    .nav-links a {
+      flex: 0 0 auto;
+      padding: 8px 10px;
+      font-size: 13px;
+    }
+    .hero { padding: 32px 0 34px; }
+    .hero h1 {
+      font-size: clamp(36px, 13vw, 54px);
+      line-height: 1;
+    }
+    .hero p.lede { font-size: 17px; }
+    .hero-actions { gap: 10px; }
+    .hero-actions .button {
+      flex: 1 1 170px;
+      min-width: 0;
+    }
+    .feature-card {
+      width: min(100%, 340px);
+      margin: 0 auto;
+      border-radius: 24px;
+    }
+    .feature-window {
+      margin: 12px;
+      border-radius: 18px 18px 88px 88px;
+    }
+    .feature-ribbon {
+      margin: 0 14px 14px;
+      padding: 14px;
+    }
+    .feature-ribbon strong { font-size: 18px; }
     .book-grid { grid-template-columns: 1fr; }
+    .path-grid { margin-bottom: 52px; }
+    .path-card,
+    .series-card { border-radius: 20px; }
+    .path-card { padding: 20px; }
+    .path-card h3,
+    .series-card h3 { font-size: 25px; }
+    .book-info h3 { font-size: 22px; }
+    .book-actions .button {
+      flex: 1 1 140px;
+      min-width: 0;
+    }
     .about-panel,
     .newsletter {
       padding: 18px;
       border-radius: 24px;
+    }
+    .about-copy { padding: 0; }
+    .portrait-frame {
+      max-width: 280px;
+      margin: 0 auto;
+    }
+    .newsletter-grid { gap: 18px; }
+    #eo-newsletter-form {
+      min-height: 132px;
+      padding: 12px;
     }
     .footer-inner { display: block; }
     footer p { margin-top: 14px; }
