@@ -1,6 +1,6 @@
 {
   "pen_name": "Sage Halcyon",
-  "generated_at": "2026-07-01T00:00:00Z",
+  "generated_at": "2026-07-08T00:00:00Z",
   "books": [
     {
       "id": "greenhouse-at-the-edge-of-everything",
@@ -41,7 +41,7 @@
       "cover_image": "images/small-repairs-cover.jpg",
       "page_url": "small-repairs.html",
       "featured": true,
-      "show_on_home": true,
+      "show_on_home": false,
       "home_sort": 1,
       "release_sort": 2,
       "tropes": [
@@ -64,12 +64,13 @@
       "series_position": 3,
       "blurb": "Linnet Ashworth has run The Long Steep, Thistledown's only coffee shop and best-loved institution, for fifteen years. What she does not need is someone arriving with plans to replace it with something faster, newer, and theoretically better. Callum Pruitt has spent twenty years being good at jobs that do not remember him, until one contract makes him question what his work is really threatening.",
       "status": "coming-soon",
-      "status_label": "Coming soon",
+      "status_label": "Preorder now",
+      "release_date": "2026-07-10",
       "cover_image": "images/keeping-it-warm-cover.png",
       "page_url": "keeping-it-warm.html",
       "featured": false,
       "show_on_home": true,
-      "home_sort": 2,
+      "home_sort": 1,
       "release_sort": 3,
       "tropes": [
         "coffee shop",
@@ -77,7 +78,12 @@
         "slow burn",
         "forced proximity"
       ],
-      "links": []
+      "links": [
+        {
+          "label": "Preorder on Amazon",
+          "url": "https://www.amazon.com/dp/B0H7L2484B"
+        }
+      ]
     },
     {
       "id": "the-last-legible-page",
@@ -87,18 +93,47 @@
       "series_position": 4,
       "blurb": "Sable Larkin has spent a decade convinced that books do not lie the way people do. She runs Thistledown's archive alone, on purpose, and she is fine with that. Then salvage hauler Rook Cassidy shows up with a water-damaged crate he does not know what to do with, and suddenly she has a slow restoration project on her hands, a guarded man near the door, and a find worth real money offworld.",
       "status": "coming-soon",
-      "status_label": "Coming soon",
+      "status_label": "Preorder now",
+      "release_date": "2026-07-17",
       "cover_image": "images/last-legible-page-cover.jpg",
       "page_url": "the-last-legible-page.html",
       "featured": false,
       "show_on_home": true,
-      "home_sort": 3,
+      "home_sort": 2,
       "release_sort": 4,
       "tropes": [
         "archive romance",
         "slow burn",
         "guarded hearts",
         "found evidence"
+      ],
+      "links": [
+        {
+          "label": "Preorder on Amazon",
+          "url": "https://www.amazon.com/dp/B0H7T727PG"
+        }
+      ]
+    },
+    {
+      "id": "strays-and-other-miscalculations",
+      "title": "Strays and Other Miscalculations",
+      "series_id": "thistledown",
+      "series": "Thistledown",
+      "series_position": 5,
+      "blurb": "Robin Thorne has never met a stray they could not take in. Then a cargo error dumps a crate of unidentified off-world creatures at Thistledown, and The Burrow gets five more problems: no manifest, no owner, and no one coming to claim them. Kit Marchetti has seven years of flawless courier work and one mistake sitting in that crate, but three quiet days become three weeks of shared chores, overnight vigils, and a thaw neither of them saw coming.",
+      "status": "coming-soon",
+      "status_label": "Coming soon",
+      "cover_image": "images/strays-and-other-miscalculations-cover.jpg",
+      "page_url": "strays-and-other-miscalculations.html",
+      "featured": false,
+      "show_on_home": true,
+      "home_sort": 3,
+      "release_sort": 5,
+      "tropes": [
+        "animal caretaking",
+        "courier mistake",
+        "forced proximity",
+        "found strays"
       ],
       "links": []
     }
