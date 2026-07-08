@@ -6,9 +6,9 @@
 <title>Sage Halcyon | Cozy Sci-Fi Romance</title>
 <meta name="description" content="Cozy sci-fi romance by Sage Halcyon: greenhouse domes, soft landings, found family, and love stories under starlight.">
 <meta property="og:title" content="Sage Halcyon | Cozy Sci-Fi Romance">
-<meta property="og:description" content="Greenhouse domes, soft landings, found family, and slow-burn romance under starlight.">
+<meta property="og:description" content="Thistledown cozy sci-fi romance: greenhouse domes, soft landings, found family, and slow-burn love stories under starlight.">
 <meta property="og:type" content="website">
-<meta property="og:image" content="images/small-repairs-cover.jpg">
+<meta property="og:image" content="images/thistledown-series-hero.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -157,7 +157,7 @@
   }
   .hero-grid {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(280px, 420px);
+    grid-template-columns: minmax(0, 0.86fr) minmax(420px, 1.14fr);
     gap: 44px;
     align-items: center;
   }
@@ -272,6 +272,34 @@
     color: var(--muted);
     font-size: 13px;
     font-weight: 700;
+  }
+
+  .series-hero-card {
+    overflow: hidden;
+    border: 1px solid rgba(255, 253, 247, 0.22);
+    border-radius: 30px;
+    background:
+      linear-gradient(180deg, rgba(255, 253, 247, 0.12), rgba(255, 253, 247, 0.04)),
+      rgba(255, 253, 247, 0.08);
+    box-shadow: 0 28px 70px var(--shadow);
+  }
+  .series-hero-card img {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+  }
+  .series-hero-caption {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 14px 18px 16px;
+    color: rgba(255, 253, 247, 0.82);
+    font-size: 13px;
+    font-weight: 800;
+  }
+  .series-hero-caption span {
+    color: var(--lamp);
   }
 
   main {
@@ -618,6 +646,7 @@
     }
     .hero { min-height: auto; }
     .feature-card { max-width: 420px; }
+    .series-hero-card { max-width: 760px; }
     .intro-band { grid-template-columns: 1fr; }
     .book-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .series-grid { grid-template-columns: 1fr; }
@@ -672,6 +701,21 @@
       padding: 14px;
     }
     .feature-ribbon strong { font-size: 18px; }
+    .series-hero-card {
+      border-radius: 22px;
+    }
+    .series-hero-card img {
+      aspect-ratio: 4 / 3;
+      object-position: center;
+    }
+    .series-hero-caption {
+      display: block;
+      padding: 12px 14px 14px;
+    }
+    .series-hero-caption span {
+      display: block;
+      margin-top: 2px;
+    }
     .book-grid { grid-template-columns: 1fr; }
     .path-grid { margin-bottom: 52px; }
     .path-card,
@@ -726,23 +770,21 @@
 <header class="hero" id="top">
   <div class="shell hero-grid">
     <div>
-      <p class="eyebrow">Cozy sci-fi romance</p>
-      <h1>Soft landings under impossible stars.</h1>
-      <p class="lede">Greenhouse domes, found family, tender repairs, and love stories that unfold where the air is warm and the view is full of planets.</p>
+      <p class="eyebrow">Thistledown cozy sci-fi romance</p>
+      <h1>Welcome to Thistledown.</h1>
+      <p class="lede">A domed moon settlement full of greenhouse light, practical tenderness, odd little jobs, and standalone love stories arriving fast enough to keep the growlights warm.</p>
       <div class="hero-actions">
-        <a class="button primary" href="#books">Explore the books</a>
-        <a class="button secondary" href="#newsletter">Join the crew list</a>
+        <a class="button primary" href="reading-order.html">Start the series</a>
+        <a class="button secondary" href="thistledown.html">Explore the dome</a>
       </div>
     </div>
-    <aside class="feature-card" aria-label="Featured book">
-      <div class="feature-window">
-        <img src="images/small-repairs-cover.jpg" alt="Cover of Small Repairs by Sage Halcyon">
-      </div>
-      <div class="feature-ribbon">
-        <strong>Small Repairs</strong>
-        <span>Thistledown, Book 2 &bull; Out now</span>
-      </div>
-    </aside>
+    <figure class="series-hero-card" aria-label="Thistledown series art">
+      <img src="images/thistledown-series-hero.jpg" alt="Thistledown series art showing cozy greenhouse domes beneath stars and a ringed planet">
+      <figcaption class="series-hero-caption">
+        <strong>One settlement. A growing shelf of soft landings.</strong>
+        <span>Stories by Sage Halcyon</span>
+      </figcaption>
+    </figure>
   </div>
 </header>
 
