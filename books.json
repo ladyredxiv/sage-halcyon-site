@@ -69,7 +69,7 @@
       "cover_image": "images/keeping-it-warm-cover.png",
       "page_url": "keeping-it-warm.html",
       "featured": false,
-      "show_on_home": true,
+      "show_on_home": false,
       "home_sort": 1,
       "release_sort": 3,
       "tropes": [
@@ -99,7 +99,7 @@
       "page_url": "the-last-legible-page.html",
       "featured": false,
       "show_on_home": true,
-      "home_sort": 2,
+      "home_sort": 1,
       "release_sort": 4,
       "tropes": [
         "archive romance",
@@ -127,13 +127,37 @@
       "page_url": "strays-and-other-miscalculations.html",
       "featured": false,
       "show_on_home": true,
-      "home_sort": 3,
+      "home_sort": 2,
       "release_sort": 5,
       "tropes": [
         "animal caretaking",
         "courier mistake",
         "forced proximity",
         "found strays"
+      ],
+      "links": []
+    },
+    {
+      "id": "seam-and-stay",
+      "title": "Seam and Stay",
+      "series_id": "thistledown",
+      "series": "Thistledown",
+      "series_position": 6,
+      "blurb": "Sparrow's mending shop is built on careful hands and quiet usefulness. Cas arrives with ruined wedding silk, a trade-guild debt, and eleven days to help make something beautiful hold.",
+      "status": "coming-soon",
+      "status_label": "Coming July 31",
+      "release_date": "2026-07-31",
+      "cover_image": "images/seam-and-stay-cover.jpg",
+      "page_url": "seam-and-stay.html",
+      "featured": false,
+      "show_on_home": true,
+      "home_sort": 3,
+      "release_sort": 6,
+      "tropes": [
+        "mending shop",
+        "forced proximity",
+        "wedding commission",
+        "choosing to stay"
       ],
       "links": []
     }

@@ -10,6 +10,7 @@ deployment:
     - /bin/cp keeping-it-warm.html $DEPLOYPATH
     - /bin/cp the-last-legible-page.html $DEPLOYPATH
     - /bin/cp strays-and-other-miscalculations.html $DEPLOYPATH
+    - /bin/cp seam-and-stay.html $DEPLOYPATH
     - /bin/cp press.html $DEPLOYPATH
     - /bin/cp site-pages.css $DEPLOYPATH
     - /bin/cp books.json $DEPLOYPATH
